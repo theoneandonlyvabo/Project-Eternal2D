@@ -9,7 +9,7 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
-        window.setTitle("ETERNAFALL : First Descent");
+        window.setTitle("Eternal2D Engine");
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
