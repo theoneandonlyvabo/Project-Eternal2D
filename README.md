@@ -1,57 +1,74 @@
 # ETERNAFALL : The Birth of the First Mark
 
-![Progress](https://progress-bar.xyz/15/?title=Progress&height=30&width=900)
+<p align="center">
+  <img src="https://progress-bar.xyz/15/?width=900&height=28" />
+</p>
 
-A pure Java 2D RPG featuring free overworld exploration and deterministic turn-based combat.
+<p align="center">
+  <b>A pure Java 2D RPG featuring free overworld exploration and deterministic turn-based combat.</b>
+</p>
+
+---
+
+## 🛠 Tech Stack
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Language-Java-orange?logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/Graphics-Java%20AWT%20%2B%20Swing-blue" />
+  <img src="https://img.shields.io/badge/Architecture-OOP-lightgrey" />
+  <img src="https://img.shields.io/badge/Dependencies-None-success" />
+</p>
+
+- **Language**: Java  
+- **Graphics API**: Java AWT + Swing (Java 2D)  
+- **Architecture**: Object-Oriented Programming  
+- **Dependencies**: None (pure standard Java library)  
+
+---
+
+## 📖 Overview
 
 EternaFall is built entirely using the standard Java library.  
-No external engines. No frameworks. No plugins. No build tools.
 
-All core systems including rendering, input handling, state management, combat logic, and map systems are implemented from scratch using Java AWT and Swing.
+No external engines.  
+No frameworks.  
+No plugins.  
+No build tools.  
+
+All core systems including rendering, input handling, state management, combat logic, and world systems are implemented from scratch.
+
+The design blends:
+
+- Creature system philosophy inspired by Pokémon  
+- Expedition-driven progression inspired by Expedition 33  
+- Strategic difficulty influence reminiscent of Elden Ring  
+- Encounter tension comparable to Hades  
+
+All adapted into a structured turn-based RPG framework.
 
 ---
 
-## Overview
-
-EternaFall combines:
-
-- Free top-down exploration
-- Structured turn-based battles
-- Modular OOP architecture
-- Explicit GameState-driven flow
-- Zero external dependencies
-
-Design inspirations include creature systems similar to Pokémon, expedition-style progression inspired by Expedition 33, strategic difficulty philosophy reminiscent of Elden Ring, and encounter intensity comparable to Hades — adapted into a clean turn-based framework.
-
----
-
-## Core Features
+## 🌍 Core Features
 
 ### Exploration
-- Real-time top-down movement
-- Tile-based world rendering
-- Seamless area transitions
-- NPC interaction and dialogue
-- Encounter trigger system
+- Real-time top-down movement  
+- Tile-based world rendering  
+- Seamless area transitions  
+- NPC interaction and dialogue  
+- Encounter trigger system  
 
-### Turn-Based Combat
-- Initiative-based turn order
-- Action abstraction layer
-- Skill execution system
-- Status effects and buffs/debuffs
-- Companion-assisted combat
+### ⚔ Turn-Based Combat
+- Initiative-based turn order  
+- Action abstraction layer  
+- Skill execution system  
+- Status effects (buffs / debuffs)  
+- Companion-assisted combat  
 
-### Architecture
-- Custom fixed timestep game loop
-- Explicit state separation (ExplorationState, CombatState, MenuState)
-- Layered rendering pipeline
-- Clean OOP hierarchy
-
----
-
-## Tech Stack
-
-- Language: Java
-- Graphics: Java AWT + Swing (Java 2D API)
-- Architecture: Object-Oriented Programming
-- Dependencies: None (pure standard Java)
+### 🧠 Architecture
+- Custom fixed timestep game loop  
+- Explicit state separation  
+  - ExplorationState  
+  - CombatState  
+  - MenuState  
+- Layered rendering pipeline  
+- Clean and modular OOP hierarchy  
