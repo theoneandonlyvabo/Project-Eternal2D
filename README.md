@@ -1,6 +1,6 @@
 # ETERNAFALL : The Birth of the First Mark
 
-![Progress](https://img.shields.io/badge/Progress-45%25-yellow)
+![Progress](https://img.shields.io/badge/Progress-15%25-yellow)
 
 A pure Java 2D RPG featuring free overworld exploration and deterministic turn-based combat.
 
