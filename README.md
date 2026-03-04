@@ -9,6 +9,10 @@
 </p>
 
 <p align="center">
+  <b>Version 0.1.3</b>
+</p>
+
+<p align="center">
   <b>A pure Java 2D RPG featuring free overworld exploration and deterministic turn-based combat.</b>
 </p>
 
