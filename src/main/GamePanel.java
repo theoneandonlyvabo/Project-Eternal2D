@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import object.ObjectManager;
 import world.TileManager;
 
 import java.awt.Color;
@@ -38,9 +39,11 @@ public class GamePanel extends JPanel implements Runnable {
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    
     public CollisionChecker cChecker = new CollisionChecker(this);
-
+    public AssetSetter aSetter = new AssetSetter(this);
     public Player player = new Player(this, keyH);
+    public ObjectManager obj[] = new ObjectManager[10];
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -48,6 +51,10 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+    }
+
+    public void setupGame() {
+        aSetter.setObject();
     }
 
     public void startGameThread() {
@@ -102,6 +109,12 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
 
         tileM.draw(g2);
+
+        for (int i = 0; i < obj.length; i++) {
+            if (obj[i] != null) {
+                obj[i].draw(g2);
+            }
+        }
 
         player.draw(g2);
 
