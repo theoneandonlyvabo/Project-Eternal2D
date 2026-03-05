@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.FileInputStream;
 import javax.imageio.ImageIO;
 import main.GamePanel;
 import main.KeyHandler;
@@ -38,31 +39,31 @@ public class Player extends Entity {
         worldX = gp.tileSize * 3;
         worldY = gp.tileSize * 9;
         speed = 3;
-        direction = "down";
+        direction = "right";
     }
 
     public void getPlayerImage() {
 
         try {
 
-            System.out.println(getClass().getResource("/assets/player/efplayer_u_1.png"));
+            System.out.println("assets/player/efplayer_u_1.png");
 
-            up1 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_u_1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_u_2.png"));
-            up3 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_u_3.png"));
-            up4 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_u_4.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_d_1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_d_2.png"));
-            down3 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_d_3.png"));
-            down4 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_d_4.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_l_1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_l_2.png"));
-            left3 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_l_3.png"));
-            left4 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_l_4.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_r_1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_r_2.png"));
-            right3 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_r_3.png"));
-            right4 = ImageIO.read(getClass().getResourceAsStream("/assets/player/efplayer_r_4.png"));
+            up1 = ImageIO.read(new FileInputStream("assets/player/efplayer_u_1.png"));
+            up2 = ImageIO.read(new FileInputStream("assets/player/efplayer_u_2.png"));
+            up3 = ImageIO.read(new FileInputStream("assets/player/efplayer_u_3.png"));
+            up4 = ImageIO.read(new FileInputStream("assets/player/efplayer_u_4.png"));
+            down1 = ImageIO.read(new FileInputStream("assets/player/efplayer_d_1.png"));
+            down2 = ImageIO.read(new FileInputStream("assets/player/efplayer_d_2.png"));
+            down3 = ImageIO.read(new FileInputStream("assets/player/efplayer_d_3.png"));
+            down4 = ImageIO.read(new FileInputStream("assets/player/efplayer_d_4.png"));
+            left1 = ImageIO.read(new FileInputStream("assets/player/efplayer_l_1.png"));
+            left2 = ImageIO.read(new FileInputStream("assets/player/efplayer_l_2.png"));
+            left3 = ImageIO.read(new FileInputStream("assets/player/efplayer_l_3.png"));
+            left4 = ImageIO.read(new FileInputStream("assets/player/efplayer_l_4.png"));
+            right1 = ImageIO.read(new FileInputStream("assets/player/efplayer_r_1.png"));
+            right2 = ImageIO.read(new FileInputStream("assets/player/efplayer_r_2.png"));
+            right3 = ImageIO.read(new FileInputStream("assets/player/efplayer_r_3.png"));
+            right4 = ImageIO.read(new FileInputStream("assets/player/efplayer_r_4.png"));
 
         } catch (IOException e) {
             e.printStackTrace();
