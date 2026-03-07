@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -23,24 +24,31 @@ public class GamePanel extends JPanel implements Runnable {
     public final int screenWidth = tileSize * maxScreenCol;
     public final int screenHeight = tileSize * maxScreenRow;
 
+        // SCREEN EFFECTS
+
+        float fadeAlpha = 1f; // 1 = gelap, 0 = terang
+        boolean fading = true;
+
     // WORLD SETTINGS
 
     public final int maxWorldCol = 100; // World Width Limit
     public final int maxWorldRow = 100; // World Height Limit
 
-    public final int worldWidth = tileSize * maxWorldCol;
-    public final int worldHeight = tileSize * maxWorldRow;
-
-    // GRAPHICS SETTINGS
+    // FPS
 
     int FPS = 60;
 
+    // SYSTEM
+
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
-    Thread gameThread;
-
+    Sound sound = new Sound();
     public CollisionChecker cChecker = new CollisionChecker(this);
     public ObjectSetter oSetter = new ObjectSetter(this);
+    Thread gameThread;
+
+    // ENTITY AND OBJECT
+
     public Player player = new Player(this, keyH);
     public ObjectManager obj[] = new ObjectManager[10];
 
@@ -53,7 +61,13 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void loadMap() {
+
         oSetter.setObject();
+
+        playSFX(1);
+
+        playMusic(0);
+
     }
 
     public void startGameThread() {
@@ -98,6 +112,14 @@ public class GamePanel extends JPanel implements Runnable {
 
         player.update();
 
+        if (fading) {
+            fadeAlpha -= 1f / 120f;
+                if (fadeAlpha <= 0) {
+                     fadeAlpha = 0;
+                    fading = false;
+                }
+            }
+
     }
 
     @Override
@@ -119,6 +141,35 @@ public class GamePanel extends JPanel implements Runnable {
         // Player
         player.draw(g2);
 
+
+        // Screen Effects
+        if (fading) {
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, fadeAlpha));
+            g2.setColor(Color.black);
+            g2.fillRect(0, 0, screenWidth, screenHeight);
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+}
+
         g2.dispose();
+    }
+
+    public void playMusic(int i) {
+
+        sound.setFile(i);
+        sound.play();
+        sound.loop();
+
+    }
+
+    public void stopMusic() {
+
+        sound.stop();
+
+    }
+
+    public void playSFX(int i) {
+        
+        sound.setFile(i);
+        sound.play();
     }
 }
