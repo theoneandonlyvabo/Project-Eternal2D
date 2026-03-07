@@ -10,18 +10,25 @@ public class HUD {
 
     GamePanel gp;
     BufferedImage playerStats;
+    BufferedImage playerItem;
 
     public HUD(GamePanel gp) {
         this.gp = gp;
 
         try {
+
             playerStats = ImageIO.read(getClass().getResourceAsStream("/gui/HUD_player_stats.png"));
+            playerItem = ImageIO.read(getClass().getResourceAsStream("/gui/HUD_player_item.png"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void draw(Graphics2D g2) {
+
         g2.drawImage(playerStats, 30, 30, null);
+        g2.drawImage(playerItem, 30, gp.screenHeight - playerItem.getHeight() - 30, null);
+        
     }
 }

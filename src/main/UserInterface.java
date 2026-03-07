@@ -10,8 +10,10 @@ public class UserInterface {
     HUD hud;
 
     public UserInterface(GamePanel gp) {
+
         this.gp = gp;
         hud = new HUD(gp);
+        
     }
 
     public void draw(Graphics2D g2) {
