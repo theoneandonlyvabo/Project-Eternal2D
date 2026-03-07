@@ -17,8 +17,8 @@ public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16; // Single Tile Game Resolution (16x16 Pixels)
 
     public final int maxScreenCol = 16; // Screen Width (Px)
-    public final int maxScreenRow = 12; // Screen Height (Px)
-    final int scale = 3; // Screen Size
+    public final int maxScreenRow = 9; // Screen Height (Px)
+    public final int scale = 5; // Screen Size
 
     public final int tileSize = originalTileSize * scale;
     public final int screenWidth = tileSize * maxScreenCol;
@@ -42,7 +42,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
-    Sound sound = new Sound();
+    Sound music = new Sound();
+    Sound SFX = new Sound();
     public CollisionChecker cChecker = new CollisionChecker(this);
     public ObjectSetter oSetter = new ObjectSetter(this);
     Thread gameThread;
@@ -113,7 +114,10 @@ public class GamePanel extends JPanel implements Runnable {
         player.update();
 
         if (fading) {
+
+            // Fade Duration
             fadeAlpha -= 1f / 120f;
+
                 if (fadeAlpha <= 0) {
                      fadeAlpha = 0;
                     fading = false;
@@ -155,21 +159,21 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void playMusic(int i) {
 
-        sound.setFile(i);
-        sound.play();
-        sound.loop();
+        music.setFile(i);
+        music.play();
+        music.loop();
 
     }
 
     public void stopMusic() {
 
-        sound.stop();
+        music.stop();
 
     }
 
     public void playSFX(int i) {
         
-        sound.setFile(i);
-        sound.play();
+        SFX.setFile(i);
+        SFX.play();
     }
 }

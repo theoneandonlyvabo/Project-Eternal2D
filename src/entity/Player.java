@@ -1,5 +1,6 @@
 package entity;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -25,27 +26,29 @@ public class Player extends Entity {
         screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
         screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
 
-        // Playe Hitbox Settings
+        // Player Hitbox Settings
 
         hitbox = new Rectangle();
-        hitbox.x = 14;
-        hitbox.y = 30;
+
+        hitbox.x = 14 * gp.scale / 3;
+        hitbox.y = 30 * gp.scale / 3;
+        hitbox.width = 20 * gp.scale / 3;
+        hitbox.height = 16 * gp.scale / 3;
 
         hitboxDefaultX = hitbox.x;
         hitboxDefaultY = hitbox.y;
-
-        hitbox.width = 20;
-        hitbox.height = 16;
 
         setDefaultValues();
         getPlayerImage();
     }
 
     public void setDefaultValues() {
+
         worldX = gp.tileSize * 3;
         worldY = gp.tileSize * 9;
-        speed = 3;
+        speed = gp.scale;
         direction = "right";
+
     }
 
     public void getPlayerImage() {
@@ -206,6 +209,10 @@ public class Player extends Entity {
         }
 
         g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+
+        g2.setColor(Color.red);
+
+        g2.drawRect(screenX + hitbox.x, screenY + hitbox.y, hitbox.width, hitbox.height);
 
     }
 }
