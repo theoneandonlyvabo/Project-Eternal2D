@@ -5,11 +5,11 @@
 </p>
 
 <p align="center">
-  <img src="https://progress-bar.xyz/22/?width=750&height=28"/>
+  <img src="https://progress-bar.xyz/28/?width=750&height=28"/>
 </p>
 
 <p align="center">
-  <b>Version 0.1.7</b>
+  <b>Version 0.1.9</b>
 </p>
 
 <p align="center">A pure Java 2D RPG featuring free overworld exploration and deterministic turn-based combat.
